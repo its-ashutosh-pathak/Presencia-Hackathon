@@ -1,0 +1,194 @@
+/* Shared dashboard styles are in global.css */
+
+.admin-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-nav-button {
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 0.875rem; /* text-sm */
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pending-badge {
+  margin-left: 0.4rem;
+  display: inline-block;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  background-color: #EF4444; /* bg-red-500 */
+  border-radius: 9999px;
+}
+
+.filter-card {
+  margin-bottom: 1.5rem;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem;
+}
+
+.overview-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-box {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.stat-box p {
+  margin: 0;
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* text-gray-500 */
+}
+.stat-box span {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600;
+  display: block;
+}
+
+.users-tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.users-tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  font-size: 0.875rem;
+}
+
+/* --- Overview Table Styles (Existing) --- */
+.overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.overview-table th, .overview-table td {
+    /* Use fixed width for subject columns to prevent jumpiness on data load */
+    min-width: 120px; 
+}
+
+.overview-table .overall-col {
+    min-width: 100px;
+    background-color: #f9fafb; /* Light gray background for overall column */
+}
+.overview-table tbody tr:hover .overall-col {
+    background-color: #f3f4f6; /* slightly darker on hover */
+}
+
+/* Sticky columns for Roll, Name, Father */
+.table-wrapper {
+    overflow-x: auto;
+    position: relative; /* Context for sticky positioning */
+}
+
+.overview-table .sticky-col {
+    position: sticky;
+    z-index: 10;
+    left: 0; /* Base position */
+    background-color: #ffffff;
+    /* Specific width for the three initial columns */
+    min-width: 60px; /* Roll */
+    max-width: 60px;
+}
+
+.overview-table thead .sticky-col:nth-child(1),
+.overview-table tbody .sticky-col:nth-child(1) {
+    left: 0;
+    min-width: 60px;
+    max-width: 60px;
+}
+.overview-table thead .sticky-col:nth-child(2),
+.overview-table tbody .sticky-col:nth-child(2) {
+    left: 60px; /* Roll width */
+    min-width: 150px;
+    max-width: 150px;
+}
+.overview-table thead .sticky-col:nth-child(3),
+.overview-table tbody .sticky-col:nth-child(3) {
+    left: 210px; /* Roll + Name width (60 + 150) */
+    min-width: 150px;
+    max-width: 150px;
+}
+
+/* Ensure sticky header cells have a background too */
+.overview-table thead th.sticky-col {
+    top: 0;
+    z-index: 20; /* Higher z-index for intersection of header and sticky body columns */
+    background-color: #f9fafb;
+}
+
+/* --- Modal Styles (Existing) --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+/* ... rest of the modal styles ... */
+
+@media (min-width: 640px) { /* sm screens */
+  .filter-grid { grid-template-columns: repeat(3, 1fr); }
+  .overview-stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .form-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .form-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- FIX for Header Layout --- */
+/* Override dashboard-header grouping to separate nav and logout */
+.dashboard-header .admin-nav-container {
+    display: flex;
+    align-items: center;
+    /* Keep the navigation and logout button separate in the header's right side */
+}
+
+/* Center the navigation tabs next to the logo for better balance */
+@media (min-width: 768px) {
+    .dashboard-header {
+        /* Allow the content (logo group) to be separated from the nav/logout */
+        display: grid;
+        grid-template-columns: 1fr auto; /* Logo group on left, controls on right */
+        gap: 1rem;
+    }
+    .header-logo-group {
+        /* Keep logo and title together */
+    }
+    .admin-nav-container {
+        /* Move tabs next to logout */
+        justify-content: flex-end;
+    }
+}

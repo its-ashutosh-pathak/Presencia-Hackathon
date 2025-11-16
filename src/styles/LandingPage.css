@@ -1,0 +1,171 @@
+/* Replaces: min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 py-12 font-sans */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem; /* py-12 p-4 */
+  box-sizing: border-box;
+}
+
+/* Replaces: w-full max-w-4xl flex flex-col md:flex-row items-start justify-center gap-6 md:gap-8 text-center md:text-left mb-10 */
+.landing-header {
+  width: 100%;
+  max-width: 80rem; /* max-w-4xl, using 1280px */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* default for mobile */
+  justify-content: center;
+  gap: 1.5rem; /* gap-6 */
+  text-align: center; /* default for mobile */
+  margin-bottom: 2.5rem; /* mb-10 */
+  box-sizing: border-box;
+}
+
+.landing-logo {
+  flex-shrink: 0;
+}
+
+.landing-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  margin: 0;
+}
+
+.landing-subtitle {
+  font-size: 1rem; /* text-base */
+  color: #4b5563; /* text-gray-600 */
+  margin-top: 0.25rem;
+}
+
+.landing-header-details {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb; /* border-gray-200 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+}
+.landing-header-details p {
+  margin: 0.25rem 0 0;
+}
+.landing-address {
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* text-gray-500 */
+}
+
+/* Replaces: flex flex-col gap-8 w-full max-w-2xl */
+.content-blocks-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* gap-8 */
+  width: 100%;
+  max-width: 42rem; /* max-w-2xl */
+}
+
+/* Replaces: w-full bg-white shadow-xl rounded-2xl p-8 */
+.content-block {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 2rem; /* p-8 */
+  border-left-width: 6px;
+  border-left-style: solid;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.content-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.content-text {
+  text-align: left;
+  line-height: 1.625; /* leading-relaxed */
+  margin: 0;
+}
+
+/* Replaces: mt-6 text-gray-700 list-disc list-inside space-y-2 */
+.content-list {
+  margin-top: 1.5rem; /* mt-6 */
+  list-style-type: disc;
+  list-style-position: inside;
+  padding-left: 0;
+}
+.content-list li {
+  margin-top: 0.5rem; /* space-y-2 */
+}
+.content-list li span {
+  font-weight: 500;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 2rem; /* mt-8 */
+}
+
+/* Replaces: w-full md:w-auto px-10 py-3 rounded-md text-white text-lg font-medium shadow hover:opacity-90 transition-opacity */
+.get-started-button {
+  width: 100%; /* Mobile default */
+  padding: 0.75rem 2.5rem; /* px-10 py-3 */
+  border-radius: 0.375rem; /* rounded-md */
+  color: #ffffff;
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow */
+  transition: opacity 0.15s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+.get-started-button:hover {
+  opacity: 0.9;
+}
+
+.mindmesh-title {
+  font-size: 1rem; /* text-base */
+  font-weight: 600;
+  margin: 0;
+}
+.mindmesh-subtitle {
+  margin-top: 0.25rem;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.content-title-small {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  margin-bottom: 1rem; /* mb-4 */
+  margin-top: 0;
+}
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.contact-list li {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem; /* space-y-2 */
+}
+.contact-list li span {
+  font-weight: 500;
+  width: 5rem; /* w-20 */
+}
+
+
+/* --- Media Query for Medium (md) screens --- */
+@media (min-width: 768px) {
+  .landing-header {
+    flex-direction: row; /* md:flex-row */
+    text-align: left; /* md:text-left */
+    gap: 2rem; /* md:gap-8 */
+  }
+  .get-started-button {
+    width: auto; /* md:w-auto */
+  }
+}

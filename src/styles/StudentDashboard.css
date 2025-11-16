@@ -1,0 +1,139 @@
+/* Shared dashboard styles are in global.css */
+
+.details-grid {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+  margin-top: 0.75rem; /* mt-3 */
+  font-size: 0.875rem; /* text-sm */
+}
+
+.stats-grid {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+/* Styles for the individual stat cards */
+.stat-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-sm */
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+.stat-card-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500;
+  margin: 0;
+}
+.stat-card-faculty {
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* text-gray-500 */
+  margin-top: 0.125rem;
+}
+.stat-card-numbers {
+  font-size: 0.875rem; /* text-sm */
+  color: #4b5563; /* text-gray-600 */
+  margin: 0.5rem 0 0;
+}
+.stat-card-progress-bar {
+  margin-top: 0.75rem; /* mt-3 */
+  width: 100%;
+  background-color: #e5e7eb; /* bg-gray-200 */
+  border-radius: 9999px; /* rounded-full */
+  height: 0.5rem; /* h-2 */
+}
+.progress-bar-inner {
+  height: 0.5rem; /* h-2 */
+  border-radius: 9999px;
+}
+.stat-card-percent-text {
+  font-size: 0.875rem; /* text-sm */
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.stat-card-meta-text {
+  font-size: 0.75rem; /* text-xs */
+  color: #4b5563; /* text-gray-600 */
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column; /* default */
+  align-items: center;
+  justify-content: space-between;
+}
+.summary-details {
+  flex: 1;
+  width: 100%;
+}
+.summary-grid {
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+  font-size: 0.875rem; /* text-sm */
+}
+.summary-donut-chart {
+  margin-top: 1.5rem; /* mt-6 */
+}
+
+/* Correction Form */
+.correction-form-grid {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+  grid-template-columns: repeat(1, 1fr); /* Mobile default */
+}
+.form-group {
+  width: 100%;
+}
+.form-input-file {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  padding: 0.4rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+}
+.form-submit-container {
+  text-align: right;
+  grid-column: 1 / -1; /* Make submit span full */
+}
+.form-span-3 {
+  grid-column: 1 / -1; /* Mobile/Default spans full width */
+}
+
+/* --- Media Queries --- */
+@media (min-width: 640px) { /* sm screens */
+  .details-grid { grid-template-columns: repeat(2, 1fr); }
+  .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Ensure 4 columns for inputs on small screens to prevent wrapping */
+  .correction-form-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Notes/Proof/Submit spans 4 columns */
+  .form-span-3 { grid-column: span 4 / span 4; } 
+}
+
+@media (min-width: 768px) { /* md screens */
+  .details-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .summary-card { flex-direction: row; }
+  .summary-details { margin-right: 2.5rem; }
+  .summary-grid { grid-template-columns: repeat(3, 1fr); }
+  .summary-donut-chart { margin-top: 0; margin-left: 2.5rem; }
+  
+  /* FIX: Force 4 columns on MD screens so all top inputs fit on one row */
+  .correction-form-grid { grid-template-columns: repeat(4, 1fr); }
+  
+  /* FIX: Ensure Notes/Proof/Submit spans 4 columns consistently */
+  .form-span-3 { grid-column: span 4 / span 4; }
+}
+
+@media (min-width: 1024px) { /* lg screens */
+  /* Keep 4 columns for the top inputs */
+  .correction-form-grid { grid-template-columns: repeat(4, 1fr); }
+  /* Keep full span for Notes/Proof/Submit */
+  .form-span-3 { grid-column: span 4 / span 4; }
+}
